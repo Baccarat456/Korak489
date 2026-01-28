@@ -1,0 +1,98 @@
+{
+  "actorSpecification": 1,
+  "fields": {
+    "threadId": {
+      "type": "string",
+      "title": "Thread ID (root tweet ID)"
+    },
+    "rootTweetId": {
+      "type": "string",
+      "title": "Root tweet ID"
+    },
+    "author": {
+      "type": "string",
+      "title": "Author handle"
+    },
+    "authorName": {
+      "type": "string",
+      "title": "Author display name"
+    },
+    "threadUrl": {
+      "type": "string",
+      "title": "Thread URL"
+    },
+    "tweetCount": {
+      "type": "integer",
+      "title": "Number of tweets in archived thread"
+    },
+    "likes": {
+      "type": "integer",
+      "title": "Likes on root tweet"
+    },
+    "retweets": {
+      "type": "integer",
+      "title": "Retweets / reposts on root tweet"
+    },
+    "replies": {
+      "type": "integer",
+      "title": "Replies on root tweet"
+    },
+    "mediaUrls": {
+      "type": "array",
+      "title": "Collected media URLs (images/videos)"
+    },
+    "threadMarkdown": {
+      "type": "string",
+      "title": "Thread exported as Markdown"
+    },
+    "kvKey": {
+      "type": "string",
+      "title": "KV key (if saved)"
+    },
+    "scrapedAt": {
+      "type": "string",
+      "title": "Scraped at (ISO)"
+    }
+  },
+  "views": {
+    "overview": {
+      "title": "Overview",
+      "transformation": {
+        "fields": ["author", "rootTweetId", "tweetCount", "likes", "retweets", "replies", "kvKey"]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "author": {
+            "label": "Author",
+            "format": "text"
+          },
+          "rootTweetId": {
+            "label": "Root Tweet ID",
+            "format": "text"
+          },
+          "tweetCount": {
+            "label": "Tweets",
+            "format": "number"
+          },
+          "likes": {
+            "label": "Likes",
+            "format": "number"
+          },
+          "retweets": {
+            "label": "Retweets",
+            "format": "number"
+          },
+          "replies": {
+            "label": "Replies",
+            "format": "number"
+          },
+          "kvKey": {
+            "label": "KV key",
+            "format": "text"
+          }
+        }
+      }
+    }
+  }
+}

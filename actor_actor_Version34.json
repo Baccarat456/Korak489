@@ -1,0 +1,17 @@
+{
+  "actorSpecification": 1,
+  "name": "twitterx-viral-thread-archivist-scraper",
+  "title": "Twitter/X \"Viral Thread\" Archivist Scraper",
+  "description": "Archives viral Twitter/X threads (thread contents, metadata, metrics, media). Uses Playwright for reliable rendering. Respect X terms of service; prefer official APIs when available.",
+  "version": "0.0",
+  "meta": {
+    "templateId": "ai-generated-actor",
+    "generatedBy": "gpt-4o-mini"
+  },
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
+  "dockerfile": "../Dockerfile"
+}

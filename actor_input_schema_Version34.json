@@ -1,0 +1,67 @@
+{
+  "title": "Input schema of the Twitter/X \"Viral Thread\" Archivist Scraper",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "startUrls": {
+      "title": "Start URLs",
+      "type": "array",
+      "description": "Thread URLs or tweet URLs to archive (example: https://x.com/username/status/1234567890). You can supply profile/listing pages but it's recommended to pass thread URLs directly.",
+      "editor": "requestListSources",
+      "prefill": [
+        {
+          "url": "https://x.com/search?q=from%3Aelonmusk%20min_faves%3A10000"
+        }
+      ]
+    },
+    "maxRequestsPerCrawl": {
+      "title": "Max requests per crawl",
+      "type": "integer",
+      "description": "Maximum number of HTTP requests the crawler will make.",
+      "default": 200
+    },
+    "maxThreads": {
+      "title": "Max threads to archive",
+      "type": "integer",
+      "description": "Maximum number of threads to archive from the startUrls.",
+      "default": 50
+    },
+    "includeReplies": {
+      "title": "Include replies",
+      "type": "boolean",
+      "description": "If true, attempt to include (some) replies to thread tweets (may require extra page interactions).",
+      "default": false
+    },
+    "saveMode": {
+      "title": "Save mode",
+      "type": "string",
+      "description": "Where to store full thread content: 'dataset' pushes content into Dataset items; 'kv' saves full JSON per-thread into the default Key-Value store and stores metadata in Dataset.",
+      "default": "dataset",
+      "enum": ["dataset", "kv"]
+    },
+    "kvKeyPrefix": {
+      "title": "KV key prefix",
+      "type": "string",
+      "description": "Prefix for keys when saving full thread JSON to KV store (if saveMode='kv').",
+      "default": "x_thread_"
+    },
+    "headless": {
+      "title": "Headless browser",
+      "type": "boolean",
+      "description": "Run Playwright in headless mode (recommended for CI).",
+      "default": true
+    },
+    "userAgent": {
+      "title": "User-Agent",
+      "type": "string",
+      "description": "Custom User-Agent header. Be polite and descriptive when crawling.",
+      "default": "twitterx-viral-thread-archivist (+https://example.com)"
+    },
+    "pageTimeoutSecs": {
+      "title": "Page timeout (seconds)",
+      "type": "integer",
+      "description": "How many seconds to wait for thread pages to load.",
+      "default": 30
+    }
+  }
+}
